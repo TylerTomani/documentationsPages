@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../../../css/codeColor.css">
+</head>
+<body>
+    <a tabindex="1" href="../../../index.html">home</a>
+    <header tabindex="1" class="flex-container">
+        <div class="flex-col">
+            <h1><code>promise</code></h1>
+            <p>
+                &emsp;The <code><span class="class-var">Promise</span> </code> takes in two callback()
+                parameters. <code><span class="var-color">resolve</span>()</code> will occur upon success,
+                <code><span class="var-color">reject</span>()</code> will occur with an error
+            </p>
+            <p>
+                &emsp;<code><span class="var-color">resolve</span>()</code> works with <code><span class="function-color">then</span></code>().
+                and <code><span class="var-color">reject</span>()</code> works with <code><span class="function-color">catch</span>()</code>
+            </p>
+            <p>
+                &emsp;Anything that run in <code><span class="var-color">p</span>.<span class="function-color">then</span>()</code> will run for
+                <code><span class="var-color">resolve</span>()</code>
+            </p>
+            <p>
+                &emsp;Anything that runs in <span class="function-color">catch</span>()</code> will run for
+                <code><span class="var-color">reject</span>()</code>
+            </p>
+        </div>
+        
+        <div class="flex-col">
+            <h2>basic promise</h2>
+            <pre class="code-color">
+<span class="let-color">let</span> <span class="var-color">p</span> = <span class="let-color">new</span> <span class="class-var">Promise</span>((<span class="var-color">resolve</span>, <span class="var-color">reject</span>) => {
+    <span class="let-color">let</span> <span class="var-color">a</span> = 1 + 1;
+    <span class="for-color">if</span>(<span class="var-color">a</span> === 2){
+        <span class="function-color">resolve</span>("Success")
+    } <span class="for-color">else</span> {
+        <span class="function-color">reject</span>("Failed")
+    }
+})
+<span class="var-color">p</span>.<span class="function-color">then</span>( (<span class="var-color">message</span>) => {
+    console.log( <span class="var-color">message</span> + ": " + "it worked")
+}).<span class="function-color">catch</span>( (<span class="var-color">error</span>) => {
+    console.log(<span class="var-color">error</span> + ": " + " it did not work")
+})
+<span class="g">// prints
+Success: it worked</span></pre>
+        </div>
+    </header>
+    <div tabindex="1" class="flex-col">
+        <h2><code>Callback</code> vs <code>Promise</code></h2>
+        <p>
+            We can do the same thing with callbacks, but <code>promises</code> are a much better and cleaner way of
+            doing this. Below shows side by side the similarities
+        </p>
+    </div>
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <h3><code>callback</code></h3>
+            <pre class="code-color">
+<span class="let-color">let</span> <span class="var-color">userLeft</span> = false;
+<span class="let-color">let</span> <span class="var-color">wathcingAnotherVideo</span> = false
+<span class="let-color">function</span> <span class="function-color">wathcingVideoCallback</span>(<span class="var-color">cb</span>, <span class="var-color">errorCb</span>){ 
+    <span class="for-color">if</span>(<span class="var-color">userLeft</span>){
+        <span class="function-color">errorCb</span>({
+            <span class="var-color">username</span>: "Rosenhan ",
+            <span class="var-color">message:</span> "has left the page"
+        })
+    } <span class="for-color">else if</span>(<span class="var-color">wathcingAnotherVideo</span>){
+        <span class="function-color">errorCb</span>({
+            <span class="var-color">username</span>: "Rosenhan ",
+            <span class="var-color">message</span>: "is watching another video"
+        })
+    } <span class="for-color">else</span>{
+        <span class="function-color">cb</span>({
+            <span class="var-color">message:</span> "Success, user is watching this video"
+        })
+    }
+}
+<span class="function-color">wathcingVideoCallback</span>( (<span class="var-color">userObj</span>) => {
+    console.log(<span class="var-color">userObj</span>.<span class="var-color">message</span>)
+}, (<span class="var-color">error</span>) => {
+    console.log(<span class="var-color">error</span>.<span class="var-color">username</span> + <span class="var-color">error</span>.<span class="var-color">message</span>)
+})
+<span class="g">// prints
+Success, user is watching this video</span>     </pre>
+        </div>
+
+        <div tabindex="1" class="flex-item">
+        <h3><code>promise</code></h3>
+       <pre class="code-color">
+<span class="let-color">let</span> <span class="var-color">userLeft</span> = false;
+<span class="let-color">let</span> <span class="var-color">wathcingAnotherVideo</span> = false
+<span class="let-color">function</span> <span class="function-color">wathcingVideoPromise</span>(){
+    <span class="for-color">return</span> <span class="let-color">new</span> <span class="class-color">Promise</span>( (<span class="var-color">resolve</span>, <span class="var-color">reject</span>) => {
+        <span class="for-color">if</span>(<span class="var-color">userLeft</span>){
+            <span class="function-color">reject</span>({
+                <span class="var-color">username</span>: "Rosenhan ",
+                <span class="var-color">message:</span> "has left the page"
+            })
+        } <span class="for-color">else if</span>(<span class="var-color">wathcingAnotherVideo</span>){
+            <span class="function-color">reject</span>({
+                <span class="var-color">username</span>: "Rosenhan ",
+                <span class="var-color">message</span>: "is watching another video"
+        })
+        } <span class="for-color">else</span>{
+            <span class="function-color">resolve</span>({
+            <span class="var-color">message:</span> "Success, user is watching this video"
+            })
+        }
+    })
+}
+<span class="function-color">wathcingVideoPromise</span>().<span class="function-color">then</span>( (<span class="var-color">userObj</span>) => {
+    console.log(<span class="var-color">userObj.message</span>)
+}).<span class="function-color">catch</span>( (<span class="var-color">error</span>) => {
+    console.log(<span class="var-color">error</span>.<span class="var-color">username</span> + <span
+    class="var-color">error</span>.<span class="var-color">message</span>)
+});
+<span class="g">//print
+Rosenhan has left the page</span></pre>     
+        </div>
+    </div>
+    <footer tabindex="1">
+        <p>from tutorial <a target="_blank" href="https://www.youtube.com/watch?v=DHvZLI7Db8E">
+        ES6 Tutorials
+        JavaScript Promises In 10 Minutes</a></p>
+        <p>Add the examples from the end of the page <code>Promise.all</code></p>
+    </footer>
+</body>
+</html>

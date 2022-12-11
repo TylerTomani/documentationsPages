@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.flex-container > .flex-item > .code-color{
+    font-size: .8rem;
+    font-size: 90%;
+}
+header>.flex-col:first-child {
+    align-items: flex-start;
+}
+header>.flex-col:first-child > p{
+    line-height: 2.5;
+}
+header > .flex-col {
+    display: flex;
+    flex-basis: 45%;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed black;
+}
+
+.code-color {
+    background-color: darkslategray;
+    background: black;
+    color: white;
+    font-size: 1rem;
+}
+.class-var {
+    color: rgb(0,200,180)
+}
+.let-color {
+    color: rgb(0,120,200);
+    font-weight: 800;
+}
+.var-color {
+    color: rgb(0,200,220);
+}
+.function-color {
+    color: rgb(180,140,0);
+}
+.for-color {
+    color: rgb(179, 71, 179)
+}
+.g {
+    color: lime;
+}
+@media screen and (max-width: 910px){
+    .flex-container > .flex-col
+     {
+        font-size: 90%;
+    }
+    header>.flex-col:first-child>p {
+        line-height: 1.5;
+    }
+    .flex-container>.flex-col>pre{
+        font-size: .8rem;
+    }
+}
+@media screen and (max-width: 720px){
+    .flex-container {
+        display: block;
+        width: 100%;
+    }
+    
+}

@@ -1,0 +1,125 @@
+/* body, */
+.night-mode {
+    opacity: .9;
+    background-color: rgb(200, 200, 200, .5);
+    background-color: black;
+    color: whitesmoke;
+    opacity: .75;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+}
+.main-section {
+    border: 1px solid black;
+    display: flex;
+}
+iframe {
+    /* border: 1px solid black; */
+    width: 100vw;
+    /* // This is awsome vmax */
+    height: 100vmax;
+}
+.side-menu {
+    width: 15%;
+    height: 1009px;
+    padding-top: 1%;
+    padding-right: 1%;
+    z-index: 5;
+}
+.side-menu > ul > li > h2 {
+    font-size: 1rem;
+}
+.units-section {
+    border-bottom: 1px solid black;
+}
+.units-section ul  {
+    font-size: .9rem;
+    list-style-type: none;
+}
+.units-section > ul > li {
+    font-size: .9rem;
+    list-style-type: none;
+    margin: 5% 0;
+    border-bottom: 1px dashed black;
+}
+.units-section ul li a{
+    text-decoration: none;
+}
+.units-section > ul > li > a > h3 {
+    margin-top: 4%;
+    margin-left: 2.5%;
+    font-size: .675rem;
+    color: firebrick
+}
+
+
+.units-section ul li ul h4{
+    padding: 0 2%;
+    border-radius: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    color:black;
+    margin-top: 1%;
+    margin-left: 5%;
+    font-size: .65rem;
+}
+.units-section ul li ul li {
+    font-size: .65rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2.5%;
+    margin-bottom: 2%;
+    margin-left: 7.5%;
+}
+.units-section ul li ul li > a:visited {
+    color: rgb(187, 100, 69)
+}
+
+.hide {
+    display: none;
+}
+.units-list-drop-triangle {
+    display: flex;
+}
+
+.drop-triangle {
+    display: none;
+}
+
+#show {
+    display: block
+}
+
+
+@media screen and (max-width: 900px) {
+    .side-menu ul li {
+        font-size: 80%;
+    }
+
+}
+@media screen and (max-width: 720px) {
+    .drop-triangle {
+        padding: 0 2%;
+        display: inline-block;
+    }
+
+    .showSide {
+        position: absolute;
+        border: 1px solid black;
+        width: 25%;
+        background-color: white;
+        height: 1009px;
+        z-index: 5;
+    }
+    /* .side-menu ul li {
+        font-size: .01%;
+    } */
+}
+

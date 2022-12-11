@@ -1,0 +1,56 @@
+.v {color: magenta;}
+.code-color {
+    background-color: darkslategray;
+    background: black;
+    color: white;
+    font-size: 1rem;
+}
+.code-color-drkGrey {
+    background-color: rgb(44, 39, 39);
+    color: lightgray;
+}
+
+.code-color-drkGrey > .function-color{
+    font-weight: 1;
+}
+.code-color>.class-var {
+    color: rgb(0, 200, 180)
+}
+
+.class-var {
+    color: rgb(0, 200, 180);
+    font-weight: 800;
+}
+
+.code-color>.let-color {
+    color: rgb(0, 120, 200);
+    font-weight: 800;
+}
+
+.code-color>.var-color {
+    color: rgb(0, 200, 220);
+}
+.var-color {
+    color: rgb(0, 200, 220);
+}
+.code-color>.function-color {
+    color: rgb(200, 200, 0);
+    font-weight: 0;
+}
+
+.function-color {
+    color: rgb(180, 200, 0);
+    font-weight: 599;
+}
+
+.code-color>.str-color {
+    color: rgb(180, 140, 0);
+}
+
+.code-color>.for-color {
+    color: rgb(179, 71, 179)
+}
+
+.g {
+    color: lime;
+}

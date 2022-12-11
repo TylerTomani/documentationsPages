@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../../css/codeColor.css">
+    <script src="fetch.js" defer></script>
+
+    <script src="../../../js/scriptFullPage.js" defer></script>
+</head>
+<body>
+    <a tabindex="1" href="../../../index.html">home</a>
+    <p>tutorials is from <a tabindex="1" href="https://www.youtube.com/watch?v=cuEtnrL9-H0">Learn Fetch API In 6 Minutes
+    Web Dev Simplified
+</a></p>
+    <p style="color:red">Go back and finish, learn how to post data to url</p>
+    <h2><code>fetch()</code></h2>
+    <!-- Basic Example -->
+    <div  class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                &emsp;This is extreamly confusing, but first know...
+                <code>fetch()</code> will not work in node.js
+            </p>
+            
+            <ul>
+                <li><code><span class="function-color">fetch</span>()</code> is a <code><span class="class-var">Promise</span></code>.</li>
+                <li> Peform a
+                <code>.<span class="function-color">then</span>()</code> on it to get <strong>ALL</strong> the data from the API 
+                </li>
+                <li>Convert the result to <code><span class="function-color">.json</span>()</code></li>
+                <li>Peform another <code><span class="function-color">then</span>()</code> on the converted <code>json</code>
+                to target and use properties from the data</li>
+            </ul>
+            <p><a tabindex="1" target="_blank" href="https://jsonplaceholder.typicode.com/todos">https://jsonplaceholder.typicode.com/todos</a></p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="code-color">
+<span class="function-color">fetch</span>(<span class="str-color">'https://jsonplaceholder.typicode.com/todos'</span>)
+    .<span class="function-color">then</span>(<span class="var-color">result</span> => <span class="var-color">result</span>.<span class="function-color">json</span>())
+    .<span class="function-color">then</span>(<span class="var-color">fullData</span> => {
+        <span class="let-color">const</span> <span class="var-color">dataObjects</span> = <span class="var-color">fullData</span>;
+        <span class="var-color">dataObjects</span>.<span class="function-color">forEach</span>(<span class="var-color">obj</span> => {
+            console.<span class="function-color">log</span>(<span class="var-color">obj</span>.<span class="var-color">title</span>)
+        })
+    })
+<span class="g">//prints
+consequuntur aut ut fugit similique
+dignissimos quo nobis earum saepe
+quis eius est sint explicabo
+numquam repellendus a magnam
+ipsam aperiam voluptates qui
+</span>
+            </pre>
+        </div>
+    </div>
+    <hr>
+    <!-- Other Examples -->
+    <div id="otherExamplesFetch" class="flex-col">
+        <h3>Other Examples using <code><span class="function-color">fetch</span>()</code></h3>
+        <h4>phone api</h4>
+        <p>
+            &emsp;<span class="ch1">F</span>ound this Api To this from
+            <a target="_blank" tabindex="1" href="https://dummyjson.com/">https://dummyjson.com/</a>.
+            Has an array of phone objects in 
+            <br> &emsp;<code>.<span class="v">products</span></code>
+        </p>
+        <p><a target="_blank" tabindex="1" href="https://dummyjson.com/products">https://dummyjson.com/products</a></p>
+    </div>
+    <!-- The phone object scripts 2 columns -->
+    <div id="exampleScripts"  class="flex-contain-col-3">
+        <div tabindex="1" id="phoneApi" class="flex-col example">
+            
+            <pre class="ex-script code-color-drkGrey">
+<span class="function-color">fetch</span>("https://dummyjson.com/products")
+    .then(result => result.json())
+    .then(<span class="var-color">dataObject</span> => {
+        const <span class="v">products</span> = dataObject.<span class="v">products</span>;
+        <span class="v">products</span>.<span class="function-color">forEach</span>( <span class="var-color">product</span> => {
+            console.log(<span class="var-color">product</span>)
+        })
+    })
+<span class="g">//prints</span>
+<span id="phoneObjFormat">{id: 1, title: 'iPhone 9',
+description: 'An apple mobile which is nothing like apple
+ materialFo...',
+price: 549, discountPercentage: 12.96, …}</span>
+            </pre>
+        </div>
+        <div tabindex="1" class="flex-col example">
+            
+            <pre class="ex-script code-color-drkGrey">
+<span class="function-color">fetch</span>("https://dummyjson.com/products")
+    .then(result => result.json())
+    .then(dataObject => {
+      const products = dataObject.products
+        products.forEach( product => {
+            console.log(product.<span class="var-color">title</span>)
+        })
+    })
+<span class="g">//prints</span>
+<span id="phoneObjFormat">iPhone 9
+fetch.js:20 iPhone X
+fetch.js:20 Samsung Universe 9
+... Handcraft Chinese style
+fetch.js:20 Key Holder</span></pre>
+        </div>  
+    </div>
+    <h2>Cathing Errors</h2>
+    <div class="flex-col">
+        
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item ">
+            <p>
+                In this api, if we try to find a item with the id # <code class="v">1000</code>,
+                it will be out of range and will see a <code>404 Errorr</code>
+                
+            </p>
+            
+        </div>    
+        <div class="flex-item">
+            <pre class="code-color">
+fetch("https://dummyjson.com/products/<span class="v">1000</span>")
+.then(result => result.json())
+<span class="g">// .then(object => console.log(object))
+// .catch( error => console.log(error))</span>
+            </pre>
+        </div>
+    </div>
+    <!-- 404 Image -->
+    <div class="container">
+        <img tabindex="1" src="images/erorr404.png">
+    </div>
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Sometimes <code>catch()</code> will not have a message with a
+                a <code>404 Error</code>. So when initially retrieving the initial then,
+                set up some if statements.
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre class="code-color">
+fetch("https://dummyjson.com/products/<span class="v">1000</span>")
+    .then(result => {
+        if(result.ok){
+            console.log("Successful")
+        } else {
+            console.log("Error: no success")
+        }
+    }
+<span class="g">// .then(object => console.log(object))
+    // .catch( error => console.log(error))</span>
+            </pre>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+img {
+    width: 100%;
+    min-width: 300px;
+    height: 20vh;
+    opacity: .95;
+    ;
+}
+* {
+    padding: 0 ;
+    margin: 0;
+}
+header {
+    display: flex;
+    gap: 1rem;
+}
+#website-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: space-between;
+    flex-wrap: wrap;
+    background-color: rgb(125,150,100,.4)
+}
+
+.website {
+    margin-top: .75%;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    flex-basis: 30%;
+
+}
+.website:active, .website:focus, .website:hover{
+    width: 110%;
+    height: 110%;
+    margin-top: .25%;
+    /* border-top: 2px solid black; */
+    /* border-right: 1px solid black; */
+    border-top: 1px solid black;
+    border-left: 3px solid black;
+}
+/* Awk Essential Training */
+#awkEssentialTraining {
+    border-left: 3px solid white;
+}
+
+/* Web Dev Simplified */
+#webDevSimp  >div > {
+    position: relative;
+}
+#webDevSimp > div > h2 {
+    position: absolute;
+    color: rgb(0,140,180);
+    outline: auto ;
+    opacity: 2;
+    z-index: 20;
+    background-color: white;
+}
+#webDevSimp > div > img {
+     border-bottom: 1px dashed black;
+    padding: 0;
+    margin: 0;
+}

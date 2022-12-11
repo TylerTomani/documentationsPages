@@ -1,0 +1,65 @@
+img {width: 100%;}
+* {margin: 0;padding: 0;}
+
+.tutorials-container {
+    display: flex;
+    /* width: 100vw; */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.tutorial-container.flex-container {
+    position: relative;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    width: 50%;
+    flex-basis: 45%;
+    /* padding: 1%; */
+    /* margin: 0rem; */
+    min-width: 300px;
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.tutorials-container > .flex-item {
+    flex-basis: 50%;
+}
+.tutorial-container.flex-container > a {
+    /* border: 4px solid red; */
+    display: block;
+    border-radius: 5px;
+}
+.tutorial-container.flex-container > .flex-col-3{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.tutorial-container.flex-container > .flex-col-3{
+    /* position: absolute; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 100%;
+}
+.app-tutorial {
+    text-decoration: none;
+}
+.app-tutorial,
+.subject-tutorial {
+    border: 2px solid green;
+    border-radius: 8px;
+    /* width: 100%; */
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+}
+.app-tutorial:active,.app-tutorial:focus,.app-tutoiral:hover
+.subject-tutorial:active, .subject-tutorial:focus, .subject-tutoiral:hover {
+        border-top: 1px solid black;
+        background-color: rgb(255,225,230,.7);
+        box-shadow: 2px 1px 1px 1px black;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        border-left: 1px solid black;
+}

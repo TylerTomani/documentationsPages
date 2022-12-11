@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>speedTypeJS</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a id="homeLink"   tabindex="1" href="../../../index.html">home</a>
+    <h1>Speed Type App JS</h1>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <div class="container">
+                <div id="quoteDisplay"></div>
+                <sup id="author"></sup>
+                <textarea autofocus tabindex="1" name="quote-input" id="quoteInput" cols="30" rows="10" placeholder=""></textarea>
+                <button tabindex="1" id="nextBtn">Next Quote</button>
+            </div>
+        </div>
+        <div id="code" class="flex-item">
+            <code tabindex="1" class="code-color">
+<br> const RANDOM_QUOTE_API_URL = 'http://api.quotable.io/random'
+<br> const quoteDisplayEl = document.getElementById(quoteDisplay)
+<br> const authorEl = document.getElementById(author)
+<br> const quoteInputEl = document.getElementById(quoteInput)
+<br> const nextBtn = document.getElementById(nextBtn)
+<br>
+<br> let correct = false
+<br> quoteInputEl.addEventListener(input, e => {
+<br>
+<br> &emsp; const quoteArray = quoteDisplayEl.querySelectorAll(span)
+<br> &emsp; const inputArray = quoteInputEl.value.split()
+<br>
+<br> &emsp; console.log(nextBtn)
+<br> &emsp; quoteArray.forEach((charSpan,index) => {
+<br> &emsp;const char = inputArray[index]
+<br> &emsp;if(char == null){
+<br> &emsp;&emsp;charSpan.classList.remove(incorrect)
+<br> &emsp;&emsp;charSpan.classList.remove(correct)
+<br> &emsp;&emsp;correct = false;
+<br> &emsp;} else if (char === charSpan.innerText){
+<br> &emsp;&emsp;charSpan.classList.add(correct)
+<br> &emsp;&emsp;charSpan.classList.remove(incorrect)
+<br> &emsp;&emsp;correct = true
+<br> &emsp;} else {
+<br> &emsp;&emsp;charSpan.classList.add(incorrect)
+<br> &emsp;&emsp;charSpan.classList.remove(correct)
+<br> &emsp;&emsp;correct = false;
+<br>
+<br> &emsp;}
+<br> })
+<br> if(correct){
+<br> nextBtn.classList.remove(hide)
+<br> } else {
+<br> nextBtn.classList.add(hide)
+<br>
+<br> }
+<br> console.log(correct)
+<br> })
+<br>
+<br> nextBtn.addEventListener(click, renderNewQuote)
+<br>
+<br> function getRandomQuote(){
+<br> return fetch(RANDOM_QUOTE_API_URL)
+<br> .then(response => response.json())
+<br> .then(data => data)
+<br> }
+<br>
+<br> async function renderNewQuote(){
+<br> const data = await getRandomQuote()
+<br> // nextBtn.classList.add(hide);
+<br> // console.log(data)
+<br> quoteDisplayEl.innerText =
+<br> const quote = data.content
+<br> // quoteDisplayEl.innerText = quote
+<br> quote.split().forEach(char => {
+<br> let charSpan = document.createElement(span)
+<br> charSpan.innerText = char;
+<br> quoteDisplayEl.appendChild(charSpan)
+<br> })
+<br> authorEl.innerText = - + data.author
+<br> quoteInputEl.value = null
+<br> quoteInputEl.focus()
+<br> }
+<br> renderNewQuote()
+          </code>
+        </div>
+        
+    </div>
+    <footer>
+        <p>From the tutorial <a tabindex="1" href="https://www.youtube.com/watch?v=R-7eQIHRszQ">Build A Speed Typing Game With JavaScript - Tutorial</a></p>
+    </footer>
+    
+</body>
+</html>
